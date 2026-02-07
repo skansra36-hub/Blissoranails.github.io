@@ -1,93 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blissora Nails</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', Arial, sans-serif;
-            background: #0f0f0f;
-            color: #fff;
-        }
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #000, #1a1a1a);
-        }
-        header h1 {
-            font-size: 48px;
-            letter-spacing: 2px;
-        }
-        header p {
-            color: #ccc;
-            font-size: 18px;
-        }
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding-top: 30px;
-        }
-        .gallery div {
-            background: #222;
-            height: 220px;
-            border-radius: 12px;
-        }
-        .cta {
-            background: #fff;
-            color: #000;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        footer {
-            background: #000;
-            padding: 20px;
-            text-align: center;
-            color: #777;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Blissora Nails</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.hero-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    transform: rotateX(10deg);
+}
+
+.hero h1 {
+    font-size: 52px;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    color: #ddd;
+    font-size: 18px;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.card {
+    background: linear-gradient(145deg, #111, #1c1c1c);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 
+        20px 20px 60px #000,
+        -20px -20px 60px #2a2a2a;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.nail {
+    height: 260px;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #222, #000);
+    box-shadow:
+        inset 10px 10px 20px rgba(0,0,0,0.6),
+        inset -10px -10px 20px rgba(255,255,255,0.05),
+        0 20px 40px rgba(0,0,0,0.8);
+    transition: transform 0.4s;
+}
+
+.nail:hover {
+    transform: translateY(-15px) scale(1.05);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: linear-gradient(145deg, #fff, #d6d6d6);
+    color: #000;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow:
+        10px 10px 30px rgba(0,0,0,0.6),
+        -5px -5px 15px rgba(255,255,255,0.2);
+}
+
+/* FOOTER */
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>Blissora Nails</h1>
-    <p>Luxury Press-On Nails — Handmade to Perfection</p>
-</header>
+<div class="hero">
+    <div class="hero-card">
+        <h1>Blissora Nails</h1>
+        <p>3D Luxury Press-On Nails<br>Designed to Turn Heads</p>
+    </div>
+</div>
 
 <section>
-    <h2>About Blissora</h2>
-    <p>Blissora Nails creates luxury press-on nail sets designed to elevate your everyday look.
-       Salon-quality, reusable, and crafted with love.</p>
-</section>
-
-<section>
-    <h2>Our Collection</h2>
-    <div class="gallery">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="card">
+        <h2>About Blissora</h2>
+        <p>Handcrafted luxury press-on nails with a premium 3D finish.
+           Reusable, durable, and made to feel like salon perfection.</p>
     </div>
 </section>
 
 <section>
-    <h2>Order Yours</h2>
-    <p>DM us to place your order or ask questions.</p>
-    <a class="cta" href="https://instagram.com/" target="_blank">Order via Instagram</a>
+    <h2>Featured Sets</h2>
+    <div class="gallery">
+        <div class="nail"></div>
+        <div class="nail"></div>
+        <div class="nail"></div>
+        <div class="nail"></div>
+    </div>
+</section>
+
+<section>
+    <div class="card">
+        <h2>Order Now</h2>
+        <p>Limited sets available. DM to secure yours.</p>
+        <a class="btn" href="https://instagram.com/" target="_blank">Order via Instagram</a>
+    </div>
 </section>
 
 <footer>
-    © 2026 Blissora Nails · All Rights Reserved
+    © 2026 Blissora Nails · Luxury in Every Detail
 </footer>
 
 </body>
