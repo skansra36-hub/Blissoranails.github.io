@@ -7,18 +7,6 @@
 
 <style>
 * {
-    .nail img {
-    width: 100%;
-    height: 100%;
-    border-radius: 28px;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.nail img:hover {
-    transform: scale(1.05);
-}
-
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -85,6 +73,7 @@ section {
 .nail {
     height: 280px;
     border-radius: 28px;
+    overflow: hidden;
     background: linear-gradient(145deg, #f8dce4, #e7bfc9);
     box-shadow:
         inset 10px 10px 25px rgba(255,255,255,0.6),
@@ -96,6 +85,19 @@ section {
 .nail:hover {
     transform: translateY(-18px) scale(1.06);
     box-shadow: 0 35px 70px rgba(160,90,110,0.6);
+}
+
+/* Images inside nails */
+.nail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+    transition: transform 0.3s;
+}
+
+.nail img:hover {
+    transform: scale(1.05);
 }
 
 /* BUTTONS */
@@ -157,20 +159,23 @@ footer {
     </div>
 </section>
 
-<div class="gallery">
-    <div class="nail">
-        <img src="nail1" alt="Blissora Nails Set 1">
+<section>
+    <h2>Signature Sets</h2>
+    <div class="gallery">
+        <div class="nail">
+            <img src="nail1.jpg" alt="Blissora Nails Set 1">
+        </div>
+        <div class="nail">
+            <img src="nail2.jpg" alt="Blissora Nails Set 2">
+        </div>
+        <div class="nail">
+            <img src="nail3.jpg" alt="Blissora Nails Set 3">
+        </div>
+        <div class="nail">
+            <img src="nail4.jpg" alt="Blissora Nails Set 4">
+        </div>
     </div>
-    <div class="nail">
-        <img src="nail2" alt="Blissora Nails Set 2">
-    </div>
-    <div class="nail">
-        <img src="nail3" alt="Blissora Nails Set 3">
-    </div>
-    <div class="nail">
-        <img src="nail4" alt="Blissora Nails Set 4">
-    </div>
-</div>
+</section>
 
 <section>
     <div class="card">
@@ -185,7 +190,7 @@ footer {
 </footer>
 
 <!-- WHATSAPP BUTTON -->
-<a class="whatsapp" href="https://wa.me/9625445036" target="_blank">
+<a class="whatsapp" href="https://wa.me/1234567890" target="_blank">
     💬 Order on WhatsApp
 </a>
 
