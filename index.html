@@ -4,143 +4,212 @@
 <meta charset="UTF-8">
 <title>Blissora Nails</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-* {
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
+/* Body */
 body {
-    margin: 0;
-    background: radial-gradient(circle at top, #f6d1dc, #f3e6e9, #e8c7cf);
+    background: linear-gradient(135deg, #fbe8eb, #f5d8de);
+    overflow-x: hidden;
     color: #4a2c33;
 }
 
-/* HERO */
+/* Particle Background */
+#particles {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1;
+}
+
+/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     perspective: 1200px;
+    position: relative;
 }
 
 .hero-card {
-    background: rgba(255, 245, 248, 0.55);
+    background: rgba(255,245,248,0.55);
     backdrop-filter: blur(25px);
     border-radius: 35px;
     padding: 70px;
     text-align: center;
-    box-shadow: 0 40px 80px rgba(180, 120, 140, 0.4);
+    box-shadow: 0 40px 80px rgba(180,120,140,0.4);
     transform: rotateX(12deg);
+    transition: transform 0.2s;
 }
 
-.hero h1 {
-    font-size: 54px;
-    letter-spacing: 3px;
-    color: #7a3b4a;
+.hero-card h1 {
+    font-size: 60px;
+    color:#7a3b4a;
+    letter-spacing:2px;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #8a5b66;
+.hero-card p {
+    font-size: 20px;
+    color:#8a5b66;
+    margin-top:15px;
 }
 
-/* SECTIONS */
-section {
-    padding: 90px 10%;
-    text-align: center;
-}
-
+/* Sections */
+section { padding: 80px 10%; text-align:center; }
 .card {
     background: linear-gradient(145deg, #fff0f4, #f3d6de);
     border-radius: 30px;
-    padding: 50px;
+    padding:50px;
     box-shadow:
-        20px 20px 60px rgba(190, 120, 140, 0.35),
-        -10px -10px 40px rgba(255, 255, 255, 0.8);
+        20px 20px 60px rgba(190,120,140,0.35),
+        -10px -10px 40px rgba(255,255,255,0.8);
 }
 
-/* GALLERY */
+/* Gallery */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 35px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:35px;
+    margin-top:50px;
 }
 
 .nail {
-    height: 280px;
-    border-radius: 28px;
-    overflow: hidden;
-    background: linear-gradient(145deg, #f8dce4, #e7bfc9);
+    height:280px;
+    border-radius:28px;
+    overflow:hidden;
+    background: linear-gradient(145deg,#f8dce4,#e7bfc9);
     box-shadow:
         inset 10px 10px 25px rgba(255,255,255,0.6),
         inset -10px -10px 25px rgba(160,90,110,0.35),
         0 25px 45px rgba(160,90,110,0.45);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
 }
 
 .nail:hover {
-    transform: translateY(-18px) scale(1.06);
+    transform: translateY(-18px) scale(1.06) rotateZ(1deg);
     box-shadow: 0 35px 70px rgba(160,90,110,0.6);
 }
 
-/* Images inside nails */
 .nail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 28px;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:28px;
     transition: transform 0.3s;
 }
 
-.nail img:hover {
-    transform: scale(1.05);
+.nail img:hover { transform: scale(1.05); }
+
+/* Shimmer Animation */
+.nail::after {
+    content:'';
+    position:absolute;
+    top:0; left:-75%;
+    width:50%; height:100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,192,203,0) 0%,
+        rgba(255,192,203,0.4) 50%,
+        rgba(255,192,203,0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events:none;
+    animation: shimmer 2.5s infinite;
 }
 
-/* BUTTONS */
+@keyframes shimmer {
+    0% { left:-75%; }
+    100% { left:125%; }
+}
+
+/* Buttons */
 .btn {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 16px 45px;
-    background: linear-gradient(145deg, #e7b2c0, #c98a9b);
-    color: #fff;
-    border-radius: 45px;
-    text-decoration: none;
-    font-weight: bold;
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 45px;
+    background: linear-gradient(145deg,#e7b2c0,#c98a9b);
+    color:#fff;
+    border-radius:45px;
+    text-decoration:none;
+    font-weight:bold;
     box-shadow:
         10px 10px 30px rgba(160,90,110,0.45),
         -5px -5px 15px rgba(255,255,255,0.7);
 }
 
-/* WHATSAPP FLOAT */
+/* WhatsApp Floating */
 .whatsapp {
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#25D366;
+    color:white;
+    padding:15px 20px;
+    border-radius:50px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    z-index:999;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform:scale(1); }
+    50% { transform:scale(1.1); }
+    100% { transform:scale(1); }
+}
+
+/* Floating Shop Now Button */
+.shop-now {
     position: fixed;
-    bottom: 25px;
+    bottom: 120px; /* above WhatsApp */
     right: 25px;
-    background: #25D366;
+    background: linear-gradient(145deg,#f3c0c8,#d87f8f);
     color: white;
-    padding: 15px 20px;
+    padding: 18px 28px;
     border-radius: 50px;
     font-weight: bold;
     text-decoration: none;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(200,120,140,0.5);
     z-index: 999;
+    animation: floatBtn 3s ease-in-out infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* FOOTER */
+.shop-now:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(200,120,140,0.7);
+}
+
+@keyframes floatBtn {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Footer */
 footer {
-    padding: 35px;
-    text-align: center;
-    color: #8a5b66;
+    padding:35px;
+    text-align:center;
+    color:#8a5b66;
+}
+
+/* 3D Hero interaction */
+body.add-hero-tilt .hero-card {
+    transform: rotateX(var(--tiltX,0deg)) rotateY(var(--tiltY,0deg));
+    transition: transform 0.1s;
 }
 </style>
 </head>
 
-<body>
+<body class="add-hero-tilt">
 
+<!-- Particle Background -->
+<canvas id="particles"></canvas>
+
+<!-- Hero Section -->
 <div class="hero">
     <div class="hero-card">
         <h1>Blissora Nails</h1>
@@ -148,6 +217,7 @@ footer {
     </div>
 </div>
 
+<!-- About -->
 <section>
     <div class="card">
         <h2>About Blissora</h2>
@@ -159,24 +229,18 @@ footer {
     </div>
 </section>
 
+<!-- Nail Gallery -->
 <section>
     <h2>Signature Sets</h2>
     <div class="gallery">
-        <div class="nail">
-            <img src="nail1.jpg" alt="Blissora Nails Set 1">
-        </div>
-        <div class="nail">
-            <img src="nail2.jpg" alt="Blissora Nails Set 2">
-        </div>
-        <div class="nail">
-            <img src="nail3.jpg" alt="Blissora Nails Set 3">
-        </div>
-        <div class="nail">
-            <img src="nail4.jpg" alt="Blissora Nails Set 4">
-        </div>
+        <div class="nail"><img src="nail1.jpg" alt="Blissora Nails Set 1"></div>
+        <div class="nail"><img src="nail2.jpg" alt="Blissora Nails Set 2"></div>
+        <div class="nail"><img src="nail3.jpg" alt="Blissora Nails Set 3"></div>
+        <div class="nail"><img src="nail4.jpg" alt="Blissora Nails Set 4"></div>
     </div>
 </section>
 
+<!-- Order Section -->
 <section>
     <div class="card">
         <h2>Order Yours</h2>
@@ -189,11 +253,48 @@ footer {
     © 2026 Blissora Nails · Pink Luxury Redefined
 </footer>
 
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp" href="https://wa.me/9625445036" target="_blank">
-    💬 Order on WhatsApp
-</a>
-<!-- force redeploy -->
+<!-- Floating Buttons -->
+<a class="whatsapp" href="https://wa.me/9625445036" target="_blank">💬 Order on WhatsApp</a>
+<a class="shop-now" href="https://instagram.com/" target="_blank">Shop Now 🛍️</a>
+
+<script>
+// Hero card 3D tilt
+const heroCard = document.querySelector('.hero-card');
+document.body.addEventListener('mousemove', e => {
+    const x = (window.innerWidth/2 - e.clientX)/25;
+    const y = (window.innerHeight/2 - e.clientY)/25;
+    heroCard.style.transform = `rotateX(${y}deg) rotateY(${-x}deg)`;
+});
+
+// Particle background
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const particles = [];
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*2+1,
+        d:Math.random()*2
+    });
+}
+function drawParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='rgba(255,192,203,0.4)';
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false);
+        ctx.fill();
+        p.y += 0.3;
+        if(p.y>canvas.height){ p.y = -10; p.x = Math.random()*canvas.width; }
+    });
+    requestAnimationFrame(drawParticles);
+}
+drawParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+</script>
 
 </body>
 </html>
